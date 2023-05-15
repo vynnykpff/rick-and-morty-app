@@ -1,0 +1,8 @@
+ПАЛІТРА КОЛЬОРІВ
+#9400D3 
+#FFA500
+#FFC0CB 
+#003366
+#00A878
+
+API - https://rickandmortyapi.com/

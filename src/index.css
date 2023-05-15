@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@font-face {
+	font-family: 'RickAndMorty';
+	src: url('../fonts/rick-and-morty.ttf') format('truetype');
+}
+
+body {
+	font-family: 'RickAndMorty';
+	background-color: #333;
+	color: #ffa500;
+}
