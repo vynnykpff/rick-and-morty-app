@@ -1,11 +1,11 @@
 import Navbar from './navbar/Navbar';
+import { HeaderStyled } from './Header.styled';
 
 const Header = () => {
 	return (
-		<div>
-			Header
+		<HeaderStyled>
 			<Navbar />
-		</div>
+		</HeaderStyled>
 	);
 };
 
