@@ -1,6 +1,9 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { requestCharacters } from '../../store/characters/characters.slice';
+import { useState, useEffect } from "react";
+
 import { Quantity, Button, Wrapper, Container } from "./charactersStyle/CharacterDetails.styled";
 import CharacterCard from "../../components/characterCard/CharacterCard";
-import { useState, useEffect } from "react";
 import axios from "axios";
 export async function getCharacter(id=1) {
     try{
@@ -13,24 +16,7 @@ export async function getCharacter(id=1) {
 }
 
 const Characters = () => {
-	const [character, setCharacter] = useState({})
-	const [currentPage, setCurrentPage] = useState(2);
-
-	 useEffect(()=>{
-        getCharacter().then(setCharacter)
-    }, [])
-	
-	const onBtn = () => {
-		setCurrentPage(currentPage + 1)
-		getCharacter(currentPage).then(setCharacter)
-	}
-	return <Container>
-		<Wrapper>
-			<Quantity>Characters: 826</Quantity>
-			<Button onClick={()=> onBtn()}>New Character</Button>
-		</Wrapper>
-		<CharacterCard item={character} id={character.id} />
-	</Container>
+	return <div>Characters</div>;
 };
 
 export default Characters;

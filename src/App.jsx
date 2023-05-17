@@ -12,7 +12,8 @@ import {
 	favorites,
 	locations,
 	notfound,
-} from './services/routes';
+} from './store/services/routes';
+import NoMatch from './pages/no-match/NoMatch';
 function App() {
 	return (
 		<>
@@ -23,7 +24,7 @@ function App() {
 					<Route path={locations} element={<Locations />} />
 					<Route path={episodes} element={<Episodes />} />
 					<Route path={favorites} element={<Favorites />} />
-					<Route path={notfound} element={<Home />} />
+					<Route path={notfound} element={<NoMatch />} />
 				</Route>
 			</Routes>
 		</>
