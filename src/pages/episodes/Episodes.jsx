@@ -1,22 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { requestEpisodes } from '../../store/episodes/episodes.slice';
+import { useState, useEffect } from "react";
+import { getItem } from "../../store/services/my-api";
+import CharacterList from "../../components/characterList/CharacterList";
 
 const Episodes = () => {
-	const dispatch = useDispatch();
-	const { arrayEpisodes, status, error } = useSelector(state => state.episodes);
+	const [currentPage, setCurrentPage] = useState(2);
+	const [episode, setEpisode] = useState(null)
+    
+    useEffect(() => {
+        getItem('episode').then(setEpisode)
+    }, [])
 
+    const handleBtn = () => {
+        setCurrentPage(currentPage + 1)
+        getItem('episode', currentPage).then(setEpisode)
+    }	
 	return (
 		<div>
 			<h3>Episodes</h3>
-			<ul>
-				{status === 'resolved' &&
-					arrayEpisodes.results.map(episode => (
-						<li key={episode.id}>{episode.name}</li>
-					))}
-				{status === 'loading' && error === null && <div>Loading...</div>}
-				{error === 'rejected' && <div>{error}</div>}
-			</ul>
-			<button onClick={() => dispatch(requestEpisodes())}>Get episodes</button>
+			<CharacterList />
 		</div>
 	);
 };

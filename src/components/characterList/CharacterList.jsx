@@ -1,25 +1,30 @@
 import { useState, useEffect } from "react"
 import { getList } from "../../store/services/my-api";
-
+import { List, Card, Name, ImgWrapper } from "./CharacterList.styled";
 const CharacterList = ({ list }) => {
-  const [li, setLi] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const newList = list.slice(0, 8);
       const promises = newList.map(item => getList(item));
       const results = await Promise.all(promises);
-      setLi(results);
+      setCharacters(results);
     };
 
     fetchData();
   }, [list]);
 
   return (
-    <>
-      <h1>Residents</h1>
-      {li && li.map((l) => <p key={l.id}>{l.name}</p>)}
-    </>
+    <List>
+      {characters && characters.map(({ id, name, status, image, }) =>
+        <Card key={id}>
+          <ImgWrapper>
+            <img src={image} />
+          </ImgWrapper>
+          <Name>{name}</Name>
+        </Card>)}
+    </List>
   );
 };
 
