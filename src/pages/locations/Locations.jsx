@@ -1,27 +1,28 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { requestLocations } from '../../store/locations/locations.slice';
-
+import { useState, useEffect } from "react";
+import { getItem } from "../../store/services/my-api";
+import CharacterList from "../../components/characterList/CharacterList";
 const Locations = () => {
-	const dispatch = useDispatch();
-	const { arrayLocations, status, error } = useSelector(
-		state => state.locations
-	);
+ const [currentPage, setCurrentPage] = useState(2);
+const [location, setLocation] = useState(null)
+    
+    useEffect(() => {
+        getItem('location').then(setLocation)
+    }, [])
+
+    const handleBtn = () => {
+        setCurrentPage(currentPage + 1)
+        getItem('location', currentPage).then(setLocation)
+    }	
 
 	return (
+		<>
+		{ location ?
 		<div>
-			<h3>Locations</h3>
-			<ul>
-				{status === 'resolved' &&
-					arrayLocations.results.map(location => (
-						<li key={location.id}>{location.name}</li>
-					))}
-				{status === 'loading' && error === null && <div>Loading...</div>}
-				{error === 'rejected' && <div>{error}</div>}
-			</ul>
-			<button onClick={() => dispatch(requestLocations())}>
-				Get locations
-			</button>
-		</div>
+			<h3>{location.name}</h3>
+			<CharacterList list={location.residents} />
+		</div > : null
+		}
+		</>
 	);
 };
 

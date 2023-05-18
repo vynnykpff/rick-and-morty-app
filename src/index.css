@@ -16,6 +16,7 @@
   --link-color: #2196f3;
   --title-color: #ff9800;
   --accent-color: #ff5722;
+  --result-color: #ff9800;
 }
 
 :root[data-theme="dark"] {
@@ -24,10 +25,13 @@
   --link-color: #4caf50;
   --title-color: #ff9800;
   --accent-color: #e91e63;
+  --result-color: #ff9800;
 }
 
 body {
-  background-color: #333;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.5s ease;
 }
 
 p,

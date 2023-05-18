@@ -16,7 +16,7 @@ align-items: center;
 
 const Quantity = styled.p`
  font-weight: 600;
- color: #fff;
+ color: var(--result-color);
  font-size: 26px;
 
 `

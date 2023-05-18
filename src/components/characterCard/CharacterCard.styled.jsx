@@ -11,16 +11,13 @@ align-items: center;
 
 `
 const CharacterInfo = styled.div`
-color: #fff;
+color: var(--link-text);
 display: flex;
 flex-direction: column;
 align-items: center;
-
-// justify-content: center;
-// margin-right: 30px;
-
 `
 const Name = styled.h1`
+color: var(--title-color);
 text-transform: uppercase;
 font-size: 40px;
 margin-bottom: 30px;

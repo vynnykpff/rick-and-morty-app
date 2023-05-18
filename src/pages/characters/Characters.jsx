@@ -1,22 +1,30 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { requestCharacters } from '../../store/characters/characters.slice';
 import { useState, useEffect } from "react";
-
 import { Quantity, Button, Wrapper, Container } from "./charactersStyle/CharacterDetails.styled";
 import CharacterCard from "../../components/characterCard/CharacterCard";
-import axios from "axios";
-export async function getCharacter(id=1) {
-    try{
-		const { data }  = await axios.get(`https://rickandmortyapi.com/api/character/${id}`)
-		console.log(data);
-        return data
-    } catch(error){
-        console.log(error);
-    }
-}
+import { getItem } from "../../store/services/my-api";
 
 const Characters = () => {
-	return <div>Characters</div>;
+    const [currentPage, setCurrentPage] = useState(2);
+    const [hero, setHero] = useState(null)
+    
+    useEffect(() => {
+        getItem('character').then(setHero)
+    }, [])
+
+    const handleBtn = () => {
+        setCurrentPage(currentPage + 1)
+        getItem('character', currentPage).then(setHero)
+    }
+
+    return <Container>
+        <Wrapper>
+            <Quantity>Total: 826</Quantity>
+            <Button onClick={()=> handleBtn()}>New character</Button>
+        </Wrapper>
+        {hero ? <CharacterCard item={hero}/> : null}
+    </Container>
+    
+
 };
 
 export default Characters;
