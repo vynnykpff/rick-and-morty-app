@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Quantity, Button, Wrapper, Container } from "./charactersStyle/CharacterDetails.styled";
+import { Quantity, Button, Wrapper, Container } from "../commonPagesStyles/commonStyles";
 import CharacterCard from "../../components/characterCard/CharacterCard";
 import { getItem } from "../../store/services/my-api";
 

@@ -1,34 +1,40 @@
-import { useState } from "react";
+import {useState} from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-// import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 export default function SelectAutoWidth() {
-  const [age, setAge] = useState('');
+  const [favorite, setFavorite] = useState('');
 
-//   const handleChange = (event: SelectChangeEvent) => {
-//     setAge(event.target.value);
-//   };
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 200 }} style={{backgroundColor: 'var(--background-color)', borderColor: 'var(--text-color)' }} >
+        <InputLabel
+          id="demo-simple-select-autowidth-label"
+          style={{ fontFamily: 'inherit', color: 'var(--text-color)'}}>
+          Favorite
+        </InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"
-          value={age}
+          value={favorite}
           onChange={handleChange}
           autoWidth
-          label="Age"
+          label="Favorite"
+          
+          style={{fontFamily: 'inherit'}}
         >
-          <MenuItem value="">
+          <MenuItem value="" style={{fontFamily: 'inherit', color: 'var(--text-color)'}}>
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Twenty</MenuItem>
-          <MenuItem value={21}>Twenty one</MenuItem>
-          <MenuItem value={22}>Twenty one and a half</MenuItem>
+          <MenuItem value={'Characters'} style={{fontFamily: 'inherit', color: 'var(--text-color)'}}>Characters</MenuItem>
+          <MenuItem value={'Locations'} style={{fontFamily: 'inherit', color: 'var(--text-color)'}}>Locations</MenuItem>
+          <MenuItem value={'Episodes'} style={{fontFamily: 'inherit', color: 'var(--text-color)'}}>Episodes</MenuItem>
         </Select>
       </FormControl>
     </div>

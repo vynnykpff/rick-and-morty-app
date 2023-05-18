@@ -1,6 +1,8 @@
 import SelectAutoWidth from "../../components/Select/Select";
 const Favorites = () => {
-	return <div><SelectAutoWidth/></div>;
+	return <>
+		<SelectAutoWidth />
+	</>;
 };
 
 export default Favorites;

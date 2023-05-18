@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { Wrapper } from "../../pages/characters/charactersStyle/CharacterDetails.styled";
-import { Card, CharacterInfo, Name, TitleInfo, Info, ImgWrapper, Img, FavBtn } from "./CharacterCard.styled";
+import { Card, CharacterInfo, Name, TitleInfo, Info, ImgWrapper, Img, FavBtn, Wrapper } from "./CharacterCard.styled";
 import handleBtn from "../../utils/funcHandleBtn";
 
 const CharacterCard = ({ item }) => {
     const [saved, setSaved] = useState([])
-    const {name, species, status, image, origin} = item
+    const {name, species, status, image, origin, gender} = item
     
     
     useEffect(()=>{
@@ -34,8 +33,14 @@ const CharacterCard = ({ item }) => {
                 <TitleInfo>Status:</TitleInfo>
                 <Info>{status}</Info>
             </Wrapper>
-            <FavBtn onClick={() => handleBtn(saved, item, 'FavoriteCharacters', setSaved)}>
-                {saved.some(el => el.id === item.id) ? 'In favorite' : 'Add to favorite'}</FavBtn>
+            <Wrapper>
+                <TitleInfo>Gender:</TitleInfo>
+                <Info>{gender}</Info>
+            </Wrapper>
+            {saved.some(el => el.id === item.id)
+                ? <FavBtn onClick={() => handleBtn(saved, item, 'FavoriteCharacters', setSaved)} fav={true}>In favorite</FavBtn>
+                : <FavBtn onClick={() => handleBtn(saved, item, 'FavoriteCharacters', setSaved)} fav={false}>Add to favorite</FavBtn> 
+                }
         </CharacterInfo>
         <ImgWrapper>
             <Img src={image} />

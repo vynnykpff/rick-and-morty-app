@@ -6,7 +6,7 @@ const CharacterList = ({ list }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const newList = list.slice(0, 8);
+      const newList = list.slice(0, 12);
       const promises = newList.map(item => getList(item));
       const results = await Promise.all(promises);
       setCharacters(results);
@@ -20,7 +20,7 @@ const CharacterList = ({ list }) => {
       {characters && characters.map(({ id, name, status, image, }) =>
         <Card key={id}>
           <ImgWrapper>
-            <img src={image} />
+            <img src={image} style={{ width: '100%' }} />
           </ImgWrapper>
           <Name>{name}</Name>
         </Card>)}
