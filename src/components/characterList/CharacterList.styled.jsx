@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const List = styled.ul`
 display: flex;
@@ -13,6 +14,7 @@ position: relative;
 width: 297px;
 height: 297px;
 margin: 12px;
+
 `
 const Name = styled.h2`
 position: absolute;
@@ -29,4 +31,8 @@ const ImgWrapper = styled.div`
 width: 100%;
 object-fit: contain;
 `
-export {List, Card, Name, ImgWrapper}
+const LinkEl = styled(Link)`
+text-decoration: none;
+width: 100%;
+`
+export {List, Card, Name, ImgWrapper, LinkEl}

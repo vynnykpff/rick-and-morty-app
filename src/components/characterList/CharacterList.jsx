@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { getList } from "../../store/services/my-api";
-import { List, Card, Name, ImgWrapper } from "./CharacterList.styled";
+import { List, Card, Name, ImgWrapper, LinkEl } from "./CharacterList.styled";
 const CharacterList = ({ list }) => {
   const [characters, setCharacters] = useState([]);
 
@@ -19,10 +19,12 @@ const CharacterList = ({ list }) => {
     <List>
       {characters && characters.map(({ id, name, status, image, }) =>
         <Card key={id}>
-          <ImgWrapper>
-            <img src={image} style={{ width: '100%' }} />
-          </ImgWrapper>
-          <Name>{name}</Name>
+          <LinkEl to={`/characters/${id}`}>
+            <ImgWrapper>
+            <img src={image} style={{ width: '100%' }} alt="hero avatar"/>
+            </ImgWrapper>
+            <Name>{name}</Name>
+          </LinkEl>
         </Card>)}
     </List>
   );

@@ -1,7 +1,10 @@
-import SelectAutoWidth from "../../components/Select/Select";
+import SelectElem from "../../components/Select/Select";
 const Favorites = () => {
+	
 	return <>
-		<SelectAutoWidth />
+		
+		<SelectElem />
+		
 	</>;
 };
 

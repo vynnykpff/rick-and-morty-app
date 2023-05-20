@@ -1,21 +1,27 @@
+import { useParams } from 'react-router';
 import { useState, useEffect } from "react";
 import { Quantity, Button, Wrapper, Container } from "../commonPagesStyles/commonStyles";
 import CharacterCard from "../../components/characterCard/CharacterCard";
 import { getItem } from "../../store/services/my-api";
 
 const Characters = () => {
-    const [currentPage, setCurrentPage] = useState(2);
+    const [currentPage, setCurrentPage] = useState(1);
     const [hero, setHero] = useState(null)
-    
+    const {id} = useParams();
+
     useEffect(() => {
-        getItem('character').then(setHero)
-    }, [])
+        setCurrentPage(+id)
+    }, [id])
+
+    useEffect(() => {
+        getItem('character', currentPage).then(setHero)
+    }, [currentPage])
 
     const handleBtn = () => {
         setCurrentPage(currentPage + 1)
-        getItem('character', currentPage).then(setHero)
     }
-
+    console.log(currentPage);
+    
     return <Container>
         <Wrapper>
             <Quantity>Total: 826</Quantity>
@@ -23,8 +29,6 @@ const Characters = () => {
         </Wrapper>
         {hero ? <CharacterCard item={hero}/> : null}
     </Container>
-    
-
 };
 
 export default Characters;

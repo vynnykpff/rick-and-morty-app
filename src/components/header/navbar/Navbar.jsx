@@ -20,6 +20,8 @@ import { BsSun } from 'react-icons/bs';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { set } from '../../../store/theme/theme.slice';
+import sound from './sound.wav'
+import { play } from '../../../utils/sounds/soundsBar';
 
 const Navbar = () => {
 	// const [theme, setTheme] = useState(true);
@@ -32,7 +34,10 @@ const Navbar = () => {
 		localStorage.setItem('theme', theme);
 	}, [theme]);
 
-	const handleChange = () => dispatch(set(theme === 'dark' ? 'light' : 'dark'));
+	const handleChange = () => {
+		dispatch(set(theme === 'dark' ? 'light' : 'dark'))
+		play(sound)
+	};
 
 	return (
 		<Nav>
@@ -40,7 +45,7 @@ const Navbar = () => {
 				<StyledLogoImage src={logo} alt='logo' width={60} />
 			</StyledLink>
 			<StyledWrapperLink>
-				<StyledLink to={characters}>
+				<StyledLink to='characters/1'>
 					<StyledLinkItem>Characters</StyledLinkItem>
 				</StyledLink>
 				<StyledLink to={locations}>
@@ -53,7 +58,10 @@ const Navbar = () => {
 					<StyledLink to={favorites}>
 						<AiOutlineHeart />
 					</StyledLink>
-					<StyledThemeLink onClick={handleChange}>
+					<StyledThemeLink onClick={() => {
+						handleChange()
+						// play()
+					}}>
 						{theme === 'light' ? <BiMoon /> : <BsSun />}
 					</StyledThemeLink>
 				</StyledWrapperLinkElement>
