@@ -1,34 +1,34 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { requestCharacters } from '../../store/characters/characters.slice';
+import { useParams } from 'react-router';
+import { useState, useEffect } from "react";
+import { Quantity, Button, Wrapper, Container } from "../commonPagesStyles/commonStyles";
+import CharacterCard from "../../components/characterCard/CharacterCard";
+import { getItem } from "../../store/services/my-api";
 
 const Characters = () => {
-	const dispatch = useDispatch();
-	const { arrayCharacters, status, error } = useSelector(
-		state => state.characters
-	);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [hero, setHero] = useState(null)
+    const {id} = useParams();
 
-	// useEffect(() => {
-	// 	dispatch(requestCharacters());
-	// }, [dispatch]);
+    useEffect(() => {
+        setCurrentPage(+id)
+    }, [id])
 
-	return (
-		<div>
-			<h3>Characters</h3>
-			<ul>
-				{status === 'resolved' &&
-					arrayCharacters.results.map(character => (
-						<li key={character.id}>{character.name}</li>
-					))}
-				{status === 'loading' && error === null && <div>Loading...</div>}
-				{error === 'rejected' && <div>{error}</div>}
-			</ul>
+    useEffect(() => {
+        getItem('character', currentPage).then(setHero)
+    }, [currentPage])
 
-			<button onClick={() => dispatch(requestCharacters())}>
-				Get Characters
-			</button>
-		</div>
-	);
+    const handleBtn = () => {
+        setCurrentPage(currentPage + 1)
+    }
+    console.log(currentPage);
+    
+    return <Container>
+        <Wrapper>
+            <Quantity>Total: 826</Quantity>
+            <Button onClick={()=> handleBtn()}>New character</Button>
+        </Wrapper>
+        {hero ? <CharacterCard item={hero}/> : null}
+    </Container>
 };
 
 export default Characters;

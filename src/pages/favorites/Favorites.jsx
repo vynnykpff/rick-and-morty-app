@@ -1,5 +1,11 @@
+import SelectElem from "../../components/Select/Select";
 const Favorites = () => {
-	return <div>Favorites</div>;
+	
+	return <>
+		
+		<SelectElem />
+		
+	</>;
 };
 
 export default Favorites;
