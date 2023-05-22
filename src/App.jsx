@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/home/Home';
@@ -13,10 +14,16 @@ import {
 	notfound,
 } from './store/services/routes';
 import NoMatch from './pages/no-match/NoMatch';
+
+export const Context = React.createContext()
+
 function App() {
+	const [select, setSelect] = useState('characters')
+	console.log(select);
 	return (
 		<>
-			<Routes>
+			<Context.Provider value={{select, setSelect}}>
+				<Routes>
 				<Route path='/' element={<Layout />}>
 					<Route index element={<Home />} />
 					<Route path='characters/:id' element={<Characters />} />
@@ -26,6 +33,7 @@ function App() {
 					<Route path={notfound} element={<NoMatch />} />
 				</Route>
 			</Routes>
+			</Context.Provider>
 		</>
 	);
 }

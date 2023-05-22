@@ -4,9 +4,11 @@ import CharacterList from "../../components/characterList/CharacterList";
 import { Button, Container, Quantity, Wrapper, ListTitle, SectionInfo, SectionTitle } from "../commonPagesStyles/commonStyles";
 import { FavBtn } from "../../components/characterCard/CharacterCard.styled";
 import handleBtn from "../../utils/funcHandleBtn";
+import getRandomNum from "../../utils/randomFubc";
+
 
 const Locations = () => {
- 	const [currentPage, setCurrentPage] = useState(2);
+ 	const [pages, setPages] = useState(1);
 	const [location, setLocation] = useState(null)
     const [saved, setSaved] = useState([])
 
@@ -23,14 +25,14 @@ const Locations = () => {
 	}, [saved]);
 	
     const onBtn = () => {
-        setCurrentPage(currentPage + 1)
-        getItem('location', currentPage).then(setLocation)
+		getItem('location', getRandomNum(126)).then(setLocation)
+		setPages(pages + 1)
     }	
 
 	return (
 		<Container>
 			<Wrapper>
-            <Quantity>Total: 126</Quantity>
+				<Quantity>Total: {pages}</Quantity>
             <Button onClick={()=> onBtn()}>New location</Button>
         </Wrapper>
 		{ location ?
