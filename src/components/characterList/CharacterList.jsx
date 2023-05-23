@@ -11,13 +11,12 @@ const CharacterList = ({ list }) => {
       const results = await Promise.all(promises);
       setCharacters(results);
     };
-
     fetchData();
   }, [list]);
 
   return (
     <List>
-      {characters && characters.map(({ id, name, status, image, }) =>
+      {characters && characters.map(({ id, name, image, }) =>
         <Card key={id}>
           <LinkEl to={`/characters/${id}`}>
             <ImgWrapper>

@@ -16,9 +16,9 @@ const SelectElem = () =>{
     <>
        <div>
         <Select value={select} onChange={handleChange}>
-        <option value="character">Character</option>
-        <option value="location">Location</option>
-        <option value="episode">Episode</option>
+        <option value="characters">Characters</option>
+        <option value="locations">Locations</option>
+        <option value="episodes">Episodes</option>
       </Select>
     </div>
     </>
