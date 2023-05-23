@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/home/Home';
@@ -6,26 +7,33 @@ import Episodes from './pages/episodes/Episodes';
 import Locations from './pages/locations/Locations';
 import Favorites from './pages/favorites/Favorites';
 import {
-	// characters,
+	characters,
 	episodes,
 	favorites,
 	locations,
 	notfound,
 } from './store/services/routes';
 import NoMatch from './pages/no-match/NoMatch';
+
+export const Context = React.createContext()
+
 function App() {
+	const [select, setSelect] = useState('characters')
+	console.log(select);
 	return (
 		<>
-			<Routes>
+			<Context.Provider value={{select, setSelect}}>
+				<Routes>
 				<Route path='/' element={<Layout />}>
 					<Route index element={<Home />} />
-					<Route path='characters/:id' element={<Characters />} />
+					<Route path={characters} element={<Characters />} />
 					<Route path={locations} element={<Locations />} />
 					<Route path={episodes} element={<Episodes />} />
 					<Route path={favorites} element={<Favorites />} />
 					<Route path={notfound} element={<NoMatch />} />
 				</Route>
 			</Routes>
+			</Context.Provider>
 		</>
 	);
 }

@@ -4,9 +4,10 @@ import CharacterList from "../../components/characterList/CharacterList";
 import { Quantity, Button, Container, Wrapper, ListTitle, SectionTitle, SectionInfo } from "../commonPagesStyles/commonStyles";
 import { FavBtn } from "../../components/characterCard/CharacterCard.styled";
 import handleBtn from "../../utils/funcHandleBtn";
+import getRandomNum from "../../utils/randomFubc";
 
 const Episodes = () => {
-	const [currentPage, setCurrentPage] = useState(2);
+ 	const [pages, setPages] = useState(1);
 	const [episode, setEpisode] = useState(null)
     const [saved, setSaved] = useState([])
 
@@ -22,15 +23,16 @@ const Episodes = () => {
         }
 	}, [saved]);
 
-    const onBtn = () => {
-        setCurrentPage(currentPage + 1)
-        getItem('episode', currentPage).then(setEpisode)
+	const onBtn = () => {
+		getItem('episode', getRandomNum(51)).then(setEpisode)
+		setPages(pages + 1)
+
 	}	
 	
 	return (
 		<Container>
 			<Wrapper>
-            <Quantity>Total: 51</Quantity>
+				<Quantity>Total: {pages}</Quantity>
             <Button onClick={()=> onBtn()}>New episode</Button>
         </Wrapper>
 		{ episode ?

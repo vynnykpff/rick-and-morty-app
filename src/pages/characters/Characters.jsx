@@ -3,14 +3,16 @@ import { useState, useEffect } from "react";
 import { Quantity, Button, Wrapper, Container } from "../commonPagesStyles/commonStyles";
 import CharacterCard from "../../components/characterCard/CharacterCard";
 import { getItem } from "../../store/services/my-api";
+import getRandomNum from '../../utils/randomFubc';
 
 const Characters = () => {
+    const [pages, setPages] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
     const [hero, setHero] = useState(null)
     const {id} = useParams();
 
     useEffect(() => {
-        setCurrentPage(+id)
+        setCurrentPage(id)
     }, [id])
 
     useEffect(() => {
@@ -18,13 +20,14 @@ const Characters = () => {
     }, [currentPage])
 
     const handleBtn = () => {
-        setCurrentPage(currentPage + 1)
+        setCurrentPage(getRandomNum(826))
+        setPages(pages + 1)
+
     }
-    console.log(currentPage);
     
     return <Container>
         <Wrapper>
-            <Quantity>Total: 826</Quantity>
+            <Quantity>Total: {pages}</Quantity>
             <Button onClick={()=> handleBtn()}>New character</Button>
         </Wrapper>
         {hero ? <CharacterCard item={hero}/> : null}

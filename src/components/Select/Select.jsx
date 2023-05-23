@@ -1,24 +1,24 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import sound from './good.mp3'
 import { play } from '../../utils/sounds/soundsBar';
 import { Select } from './Select.styled';
+import { Context } from '../../App';
 
 const SelectElem = () =>{
-  const [favorite, setFavorite] = useState('');
+  const { select, setSelect } = useContext(Context)
 
   const handleChange = (event) => {
-    setFavorite(event.target.value);
+    setSelect(event.target.value);
     play(sound)
   };
 
   return (
     <>
        <div>
-        <Select value={favorite} onChange={handleChange}>
-        <option value="">Choose option</option>
-        <option value="character">Character</option>
-        <option value="location">Location</option>
-        <option value="episode">Episode</option>
+        <Select value={select} onChange={handleChange}>
+        <option value="characters">Characters</option>
+        <option value="locations">Locations</option>
+        <option value="episodes">Episodes</option>
       </Select>
     </div>
     </>
