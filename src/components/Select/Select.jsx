@@ -9,7 +9,7 @@ const SelectElem = () =>{
 
   const handleChange = (event) => {
     setSelect(event.target.value);
-    play(sound)
+    play(sound, 0.3)
   };
 
   return (

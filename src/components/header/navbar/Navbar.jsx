@@ -36,7 +36,7 @@ const Navbar = () => {
 
 	const handleChange = () => {
 		dispatch(set(theme === 'dark' ? 'light' : 'dark'))
-		play(sound)
+		play(sound, 0.01)
 	};
 
 	return (
