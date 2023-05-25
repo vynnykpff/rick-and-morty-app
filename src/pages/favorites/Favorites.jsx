@@ -1,11 +1,15 @@
 import SelectElem from "../../components/Select/Select";
 import { Context } from "../../App";
 import { useContext, useEffect, useState } from "react";
-import CharacterList from "../../components/characterList/CharacterList";
+import FavoriteCharacters from "../../components/Favorites/FavoriteCharacters";
+import FavoritePlace from "../../components/Favorites/FavoriteLocations";
 
 const Favorites = () => {
-	const[option, setOption] = useState([])
+	const [option, setOption] = useState([])
+	const [locations, setLocations] = useState([])
+	const [episodes, setEpisodes] = useState([])
 	const { select } = useContext(Context);
+
 	useEffect(()=>{
         const saved = JSON.parse(window.localStorage.getItem('FavoriteCharacters')) ?? []
         setOption(saved);
@@ -15,24 +19,22 @@ const Favorites = () => {
 		if (select === 'characters') {
 			const saved = JSON.parse(window.localStorage.getItem('FavoriteCharacters')) ?? []
 			setOption(saved);
-			return
 		}
 		if (select === 'locations') {
 			const saved = JSON.parse(window.localStorage.getItem('FavoriteLocations')) ?? []
-			setOption(saved);
-			return
+			setLocations(saved);
 		}
 		if (select === 'episodes') {
 			const saved = JSON.parse(window.localStorage.getItem('FavoriteEpisodes')) ?? []
-        setOption(saved);
+        	setEpisodes(saved);
 		}
 	}, [select])
 	
-	console.log(option);
 	return <>
 		<SelectElem />
-		{select === 'locations' ? <h2>Location</h2> : <h2>Some another</h2>}
-		{/* <CharacterList list={option}/> */}
+		{select ==='characters' ? <FavoriteCharacters list={option} /> : null}
+		{select ==='locations' ? <FavoritePlace list={locations} /> : null}
+		{select ==='episodes' ? <FavoritePlace list={episodes} /> : null}
 	</>;
 };
 

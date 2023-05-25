@@ -25,6 +25,7 @@ color: var(--title-color);
 text-transform: uppercase;
 font-size: 40px;
 margin-bottom: 30px;
+text-align: center;
 
 `
 const Wrapper = styled.div`
@@ -36,10 +37,12 @@ const TitleInfo = styled.h2`
 font-size: 30px;
 font-weight: 600;
 margin-right: 15px;
+
 `
 const Info = styled.p`
 font-size: 30px;
 font-weight: 400;
+
 `
 const ImgWrapper = styled.div`
 display: flex;

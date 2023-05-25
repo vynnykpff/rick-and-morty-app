@@ -7,20 +7,14 @@ import getRandomNum from '../../utils/randomFubc';
 
 const Characters = () => {
     const [pages, setPages] = useState(1);
-    const [currentPage, setCurrentPage] = useState(1);
     const [hero, setHero] = useState(null)
     const {id} = useParams();
 
     useEffect(() => {
-        setCurrentPage(id)
+        getItem('character', id).then(setHero)
     }, [id])
 
-    useEffect(() => {
-        getItem('character', currentPage).then(setHero)
-    }, [currentPage])
-
     const handleBtn = () => {
-        setCurrentPage(getRandomNum(826))
         setPages(pages + 1)
 
     }
@@ -28,7 +22,7 @@ const Characters = () => {
     return <Container>
         <Wrapper>
             <Quantity>Total: {pages}</Quantity>
-            <Button onClick={()=> handleBtn()}>New character</Button>
+            <Button onClick={() => handleBtn()}  to={`/characters/${getRandomNum(826)}`}>New character</Button>
         </Wrapper>
         {hero ? <CharacterCard item={hero}/> : null}
     </Container>

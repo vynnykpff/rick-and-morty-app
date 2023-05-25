@@ -4,5 +4,6 @@ const Select = styled.select`
 width: 300px;
 padding: 10px;
 margin-top: 30px;
+outline: none;
 `
 export {Select}

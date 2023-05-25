@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getItem } from "../../store/services/my-api";
 import CharacterList from "../../components/characterList/CharacterList";
 import { Quantity, Button, Container, Wrapper, ListTitle, SectionTitle, SectionInfo } from "../commonPagesStyles/commonStyles";
@@ -10,12 +11,16 @@ const Episodes = () => {
  	const [pages, setPages] = useState(1);
 	const [episode, setEpisode] = useState(null)
     const [saved, setSaved] = useState([])
-
+	const { id } = useParams();
+	
     useEffect(() => {
-		getItem('episode').then(setEpisode);
 		const saved = JSON.parse(window.localStorage.getItem('FavoriteEpisodes')) ?? []
         setSaved(saved);
 	}, [])
+
+	 useEffect(() => {
+        getItem('episode', id).then(setEpisode)
+    }, [id])
 	
 	 useEffect(() => {
         if(saved.length){
@@ -24,16 +29,14 @@ const Episodes = () => {
 	}, [saved]);
 
 	const onBtn = () => {
-		getItem('episode', getRandomNum(51)).then(setEpisode)
 		setPages(pages + 1)
-
 	}	
 	
 	return (
 		<Container>
 			<Wrapper>
 				<Quantity>Total: {pages}</Quantity>
-            <Button onClick={()=> onBtn()}>New episode</Button>
+            <Button onClick={()=> onBtn()} to={`/episodes/${getRandomNum(51)}`}>New episode</Button>
         </Wrapper>
 		{ episode ?
 			<div>

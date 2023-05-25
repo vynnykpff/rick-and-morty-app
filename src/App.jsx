@@ -19,7 +19,6 @@ export const Context = React.createContext()
 
 function App() {
 	const [select, setSelect] = useState('characters')
-	console.log(select);
 	return (
 		<>
 			<Context.Provider value={{select, setSelect}}>

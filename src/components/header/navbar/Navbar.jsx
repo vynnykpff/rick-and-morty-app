@@ -48,10 +48,10 @@ const Navbar = () => {
 				<StyledLink to='characters/1'>
 					<StyledLinkItem>Characters</StyledLinkItem>
 				</StyledLink>
-				<StyledLink to={locations}>
+				<StyledLink to='locations/1'>
 					<StyledLinkItem>Locations</StyledLinkItem>
 				</StyledLink>
-				<StyledLink to={episodes}>
+				<StyledLink to='episodes/1'>
 					<StyledLinkItem>Episodes</StyledLinkItem>
 				</StyledLink>
 				<StyledWrapperLinkElement>

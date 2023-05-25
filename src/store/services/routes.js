@@ -1,8 +1,8 @@
 const routes = {
 	homepage: '/rick-and-morty-app',
 	characters: '/characters/:id',
-	locations: '/locations',
-	episodes: '/episodes',
+	locations: '/locations/:id',
+	episodes: '/episodes/:id',
 	favorites: '/favorites',
 	notfound: '*',
 };

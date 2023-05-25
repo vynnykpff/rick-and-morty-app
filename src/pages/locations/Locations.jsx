@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getItem } from "../../store/services/my-api";
 import CharacterList from "../../components/characterList/CharacterList";
 import { Button, Container, Quantity, Wrapper, ListTitle, SectionInfo, SectionTitle } from "../commonPagesStyles/commonStyles";
@@ -11,12 +12,16 @@ const Locations = () => {
  	const [pages, setPages] = useState(1);
 	const [location, setLocation] = useState(null)
     const [saved, setSaved] = useState([])
+	const {id} = useParams();
 
     useEffect(() => {
-		getItem('location').then(setLocation)
 		const saved = JSON.parse(window.localStorage.getItem('FavoriteLocations')) ?? []
         setSaved(saved);
 	}, [])
+
+	 useEffect(() => {
+        getItem('location', id).then(setLocation)
+    }, [id])
 	
     useEffect(() => {
         if(saved.length){
@@ -25,7 +30,6 @@ const Locations = () => {
 	}, [saved]);
 	
     const onBtn = () => {
-		getItem('location', getRandomNum(126)).then(setLocation)
 		setPages(pages + 1)
     }	
 
@@ -33,7 +37,7 @@ const Locations = () => {
 		<Container>
 			<Wrapper>
 				<Quantity>Total: {pages}</Quantity>
-            <Button onClick={()=> onBtn()}>New location</Button>
+				<Button onClick={() => onBtn()} to={`/locations/${getRandomNum(126)}`}>New location</Button>
         </Wrapper>
 		{ location ?
 			<div>
