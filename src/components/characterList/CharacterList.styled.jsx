@@ -14,7 +14,8 @@ position: relative;
 width: 297px;
 height: 297px;
 margin: 12px;
-
+border-radius: 10px;
+overflow: hidden;
 `
 const Name = styled.h2`
 position: absolute;
