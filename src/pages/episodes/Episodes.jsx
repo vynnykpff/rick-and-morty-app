@@ -2,7 +2,17 @@ import {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {getItem} from "../../store/services/my-api";
 import CharacterList from "../../components/characterList/CharacterList";
-import { Quantity, Button, Container, Wrapper, ListTitle, SectionTitle, SectionInfo, FavBtn } from "../commonPagesStyles/commonStyles";
+import {
+	Quantity,
+	Button,
+	Container,
+	Wrapper,
+	ListTitle,
+	SectionTitle,
+	SectionInfo,
+	FavBtn,
+	SectionName
+} from "../commonPagesStyles/commonStyles";
 import handleBtn from "../../utils/funcHandleBtn";
 import getRandomNum from "../../utils/randomFubc";
 import {useDispatch, useSelector} from "react-redux";
@@ -42,9 +52,9 @@ const Episodes = () => {
 			</Wrapper>
 			{episode ?
 				<div>
-					<SectionTitle>Episode: {episode.name}</SectionTitle>
-					<SectionInfo>Air data: {episode.air_date}</SectionInfo>
-					<SectionInfo>Seria: {episode.episode}</SectionInfo>
+					<SectionTitle>Episode: <SectionName>{episode.name}</SectionName></SectionTitle>
+					<SectionInfo>Air data: <SectionName>{episode.air_date}</SectionName></SectionInfo>
+					<SectionInfo>Seria: <SectionName>{episode.episode}</SectionName></SectionInfo>
 
 					<FavBtn onClick={() => handleBtn(saved, episode, 'FavoriteEpisodes', setSaved)}
 						isFavorite={saved.some(el => el.id === episode.id)}>
