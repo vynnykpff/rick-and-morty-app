@@ -30,8 +30,8 @@ font-size: 24px;
 margin-bottom: 20px;
 `
 const ListTitle = styled.h3`
-margin-top: 40px;
-font-size: 26px;
+margin-top: 50px;
+font-size: 28px;
 `
 const Button = styled(Link)`
 background-color: #004A7F;
@@ -56,6 +56,25 @@ animation: glowing 1500ms infinite;
 0% { background-color: var(--glowing-color1); box-shadow: 0 0 3px var(--glowing-color1); }
 50% { background-color: var(--glowing-color2); box-shadow: 0 0 40px var(--glowing-color2); }
 100% { background-color: var(--glowing-color1); box-shadow: 0 0 3px var(--glowing-color1); }
-
 `
-export {Quantity, Button, Wrapper, Container, ListTitle, SectionInfo, SectionTitle}
+
+const FavBtn = styled.button`
+background-color: ${props => props.isFavorite ? 'var(--result-color)' : 'transparent'};
+-webkit-border-radius: 20px;
+border:  ${props => props.isFavorite ? 'none' : '1px solid var(--favorite-btn-color)'};
+border-radius: 30px;
+color: ${props => props.isFavorite ? '#fff' : 'var(--favorite-btn-color)'};
+cursor: pointer;
+display: inline-block;
+font-family: inherit;
+font-size: 26px;
+padding: 15px 30px;
+text-align: center;
+margin-top: 20px;
+:hover{
+   background-color: var(--result-color); 
+   border: none;
+   color: #fff
+}
+`
+export {Quantity, Button, Wrapper, Container, ListTitle, SectionInfo, SectionTitle, FavBtn}
