@@ -1,41 +1,44 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getItem } from "../../store/services/my-api";
+import {useState, useEffect} from "react";
+import {useParams} from "react-router-dom";
+import {getItem} from "../../store/services/my-api";
 import CharacterList from "../../components/characterList/CharacterList";
 import { Button, Container, Quantity, Wrapper, ListTitle, SectionInfo, SectionTitle, FavBtn } from "../commonPagesStyles/commonStyles";
 import handleBtn from "../../utils/funcHandleBtn";
 import getRandomNum from "../../utils/randomFubc";
+import {useDispatch, useSelector} from "react-redux";
+import {getTotalActions} from "../../store/total-actions/totalActions.slice.js";
 
 
 const Locations = () => {
- 	const [pages, setPages] = useState(1);
 	const [location, setLocation] = useState(null)
-    const [saved, setSaved] = useState([])
+	const [saved, setSaved] = useState([])
 	const {id} = useParams();
+	const countOfActions = useSelector(state => state.actions.action);
+	const dispatch = useDispatch();
 
-    useEffect(() => {
+	useEffect(() => {
 		const saved = JSON.parse(window.localStorage.getItem('FavoriteLocations')) ?? []
-        setSaved(saved);
+		setSaved(saved);
 	}, [])
 
-	 useEffect(() => {
-        getItem('location', id).then(setLocation)
-    }, [id])
-	
-    useEffect(() => {
-        if(saved.length){
-            window.localStorage.setItem('FavoriteLocations', JSON.stringify(saved));
-        }
+	useEffect(() => {
+		getItem('location', id).then(setLocation)
+	}, [id])
+
+	useEffect(() => {
+		if (saved.length) {
+			window.localStorage.setItem('FavoriteLocations', JSON.stringify(saved));
+		}
 	}, [saved]);
-	
-    const onBtn = () => {
-		setPages(pages + 1)
-    }	
+
+	const onBtn = () => {
+		dispatch(getTotalActions(countOfActions));
+	}
 
 	return (
 		<Container>
 			<Wrapper>
-				<Quantity>Total: {pages}</Quantity>
+				<Quantity>Total: {countOfActions}</Quantity>
 				<Button onClick={() => onBtn()} to={`/locations/${getRandomNum(126)}`}>New location</Button>
         </Wrapper>
 		{ location ?

@@ -1,4 +1,5 @@
-export function play(sound) {
-    new Audio(sound).play()
+export function play(sound, volume) {
+    const audio = new Audio(sound)
+    audio.volume = volume ? volume : 0.05;
+    return audio.play();
 }
- 
