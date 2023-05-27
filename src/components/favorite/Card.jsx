@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Name, ImgWrapper, LinkEl, Btn } from "../characterList/CharacterList.styled";
+import {Card, Name, ImgWrapper, LinkEl, Btn, Image} from "../characterList/CharacterList.styled";
 import { getList } from "../../store/services/my-api";
 
 const CardEl = ({ item, onBtn }) => {
@@ -23,7 +23,7 @@ const CardEl = ({ item, onBtn }) => {
       <Btn onClick={() => onBtn(item.id)}/>
       <LinkEl to={`/${page}/${item.id}`}>
         <ImgWrapper>
-        <img src={image || 'https://rickandmortyapi.com/api/character/avatar/19.jpeg'} style={{ width: '100%' }} alt="hero avatar"/>
+        <Image src={image || 'https://rickandmortyapi.com/api/character/avatar/19.jpeg'} alt="hero avatar"/>
         </ImgWrapper>
         <Name>{item.name}</Name>
       </LinkEl>
