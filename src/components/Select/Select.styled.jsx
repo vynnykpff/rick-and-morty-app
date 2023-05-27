@@ -5,5 +5,13 @@ width: 300px;
 padding: 10px;
 margin-top: 30px;
 outline: none;
+border-radius: 10px;
+font-weight: 600;
+color: var(--accent-color);
 `
-export {Select}
+const Option = styled.option`
+padding: 3px 10px;
+font-weight: 600;
+color: #000;
+`
+export {Select, Option}

@@ -1,8 +1,9 @@
-import SelectElem from "../../components/Select/Select";
+import SelectElem from "../../components/select/Select";
 import { Context } from "../../App";
 import { useContext, useEffect, useState } from "react";
-import FavoriteCharacters from "../../components/Favorites/FavoriteCharacters";
-import FavoritePlace from "../../components/Favorites/FavoriteLocations";
+import FavoriteCharacters from "../../components/favorite/FavoriteCharacters";
+import FavoritePlace from "../../components/favorite/FavoritePlace";
+
 
 const Favorites = () => {
 	const [option, setOption] = useState([])
@@ -33,8 +34,8 @@ const Favorites = () => {
 	return <>
 		<SelectElem />
 		{select ==='characters' ? <FavoriteCharacters list={option} /> : null}
-		{select ==='locations' ? <FavoritePlace list={locations} /> : null}
-		{select ==='episodes' ? <FavoritePlace list={episodes} /> : null}
+		{select === 'locations' ? <FavoritePlace list={locations} page={'Locations'} /> : null}
+		{select === 'episodes' ? <FavoritePlace list={episodes} page={'Episodes'} /> : null}
 	</>;
 };
 

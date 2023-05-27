@@ -1,7 +1,7 @@
 import {useState, useEffect, useContext} from 'react';
 import sound from './good.mp3'
 import { play } from '../../utils/sounds/soundsBar';
-import { Select } from './Select.styled';
+import { Select, Option } from './Select.styled';
 import { Context } from '../../App';
 
 const SelectElem = () =>{
@@ -14,13 +14,11 @@ const SelectElem = () =>{
 
   return (
     <>
-       <div>
         <Select value={select} onChange={handleChange}>
-        <option value="characters">Characters</option>
-        <option value="locations">Locations</option>
-        <option value="episodes">Episodes</option>
+        <Option value="characters">Characters</Option>
+        <Option value="locations">Locations</Option>
+        <Option value="episodes">Episodes</Option>
       </Select>
-    </div>
     </>
   );
 }

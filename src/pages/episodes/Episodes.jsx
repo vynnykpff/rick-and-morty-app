@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getItem } from "../../store/services/my-api";
 import CharacterList from "../../components/characterList/CharacterList";
-import { Quantity, Button, Container, Wrapper, ListTitle, SectionTitle, SectionInfo } from "../commonPagesStyles/commonStyles";
-import { FavBtn } from "../../components/characterCard/CharacterCard.styled";
+import { Quantity, Button, Container, Wrapper, ListTitle, SectionTitle, SectionInfo, FavBtn } from "../commonPagesStyles/commonStyles";
 import handleBtn from "../../utils/funcHandleBtn";
 import getRandomNum from "../../utils/randomFubc";
 
@@ -44,7 +43,8 @@ const Episodes = () => {
 				<SectionInfo>Air data: {episode.air_date}</SectionInfo>		
 				<SectionInfo>Seria: {episode.episode}</SectionInfo>	
 
-				<FavBtn onClick={() => handleBtn(saved, episode, 'FavoriteEpisodes', setSaved)}>
+					<FavBtn onClick={() => handleBtn(saved, episode, 'FavoriteEpisodes', setSaved)}
+						isFavorite={saved.some(el => el.id === episode.id)}>
 						{saved.some(el => el.id === episode.id) ? 'In favorite' : 'Add to favorite'}</FavBtn>
 					
 				<ListTitle>Characters of {episode.name}</ListTitle> 
