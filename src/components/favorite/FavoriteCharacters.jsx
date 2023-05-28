@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
 import {List, Card, Name, ImgWrapper, LinkEl, Btn, NoItems, Image} from "../characterList/CharacterList.styled";
+import {play} from "../../utils/soundsBar.jsx";
+import sound from '../../assets/sounds/delete-item.mp3';
 
 const FavoriteCharacters = ({list}) => {
 	const [saved, setSaved] = useState([])
@@ -15,6 +17,7 @@ const FavoriteCharacters = ({list}) => {
 	}, [saved]);
 
 	const onBtn = (id) => {
+		play(sound)
 		const newList = saved.filter(item => item.id !== id)
 		if (newList.length === 0) {
 			window.localStorage.removeItem('FavoriteCharacters');

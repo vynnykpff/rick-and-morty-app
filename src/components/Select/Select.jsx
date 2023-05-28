@@ -1,8 +1,8 @@
-import {useState, useEffect, useContext} from 'react';
-import sound from './good.mp3'
-import { play } from '../../utils/sounds/soundsBar';
-import { Select, Option } from './Select.styled';
-import { Context } from '../../App';
+import {useContext} from 'react';
+import sound from '../../assets/sounds/good.mp3'
+import {play} from '../../utils/soundsBar.jsx';
+import {Option, Select} from './Select.styled';
+import {Context} from '../../App';
 
 const SelectElem = () =>{
   const { select, setSelect } = useContext(Context)

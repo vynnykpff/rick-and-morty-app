@@ -1,13 +1,14 @@
-import './Preloader.css';
+import {Loader, PreloaderContainer, Spinner} from "./Preloader.styled.jsx";
+
 
 const Preloader = () => {
 	return (
-		<div className="ring-loader">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
+		<PreloaderContainer>
+			<Spinner className="spinner">
+				<Loader className="l1"></Loader>
+				<Loader className="l2"></Loader>
+			</Spinner>
+		</PreloaderContainer>
 	);
 };
 

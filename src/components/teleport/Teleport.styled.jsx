@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import {Link} from 'react-router-dom';
+import {mediaQueries} from "../../utils/media-queries.jsx";
 
 const TeleportContainer = styled.div`
   background: linear-gradient(to bottom, #1a1a1a 0%, #333333 50%, #4d4d4d 100%);
@@ -7,11 +8,18 @@ const TeleportContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-	width: 100vw;
-	height: 100vh;
-	position: relative;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   overflow: hidden;
 `;
+
+const PreloaderWrapper = styled.div`
+
+`
 
 const Main = styled.main`
   display: flex;
@@ -19,15 +27,32 @@ const Main = styled.main`
   align-items: center;
 `;
 
+const PreloaderMain = styled.main`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  filter: blur(8px);
+	width: 100vw;
+	height: 100vh;
+`
+
 const Title = styled.img`
   width: 550px;
   animation: pulse 1.5s ease-in-out infinite;
+
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    width: 300px;
+  }
 `;
 
 const PortalImage = styled.img`
   width: 550px;
   animation: pulse 1s ease-in-out infinite;
 
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    width: 400px;
+  }
+	
   @keyframes pulse {
     0% {
       transform: scale(1);
@@ -42,7 +67,7 @@ const PortalImage = styled.img`
 `;
 
 const PortalLink = styled(Link)`
-	
+
 `
 
 const PortalBlock = styled.div`
@@ -58,14 +83,26 @@ const LeftImage = styled.img`
   position: absolute;
   transform: rotate(35deg);
   transition: all .5s ease;
-	left: -80px;
-	bottom: -98px;
-  border-top-left-radius: 80px;
-  border-top-right-radius: 80px;
+  left: -80px;
+  bottom: -98px;
 
   &:hover {
     transition: all .5s ease;
     width: 520px;
+  }
+
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    width: 300px;
+    left: -40px;
+    bottom: -55px;
+
+    &:hover {
+      width: 300px;
+    }
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+	  display: none;
   }
 `
 
@@ -76,25 +113,47 @@ const RightImage = styled.img`
   transition: all .5s ease;
   right: -80px;
   bottom: -98px;
-  border-top-left-radius: 80px;
-  border-top-right-radius: 80px;
+
   &:hover {
     transition: all .5s ease;
-	  width: 520px;
+    width: 520px;
+  }
+
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    width: 300px;
+    right: -40px;
+    bottom: -55px;
+
+    &:hover {
+    	width: 300px;
+    }
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    display: none;
   }
 `
 
 const DicorateImageLeft = styled.img`
-	position: absolute;
-	top: 40px;
-	left: -110px;
-	width: 400px;
+  position: absolute;
+  top: 40px;
+  left: -110px;
+  width: 400px;
   transition: all .3s ease;
-	
 	
   &:hover {
     transition: all .3s ease;
-	  left: -130px;
+    left: -130px;
+  }
+
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    width: 300px;
+    right: -40px;
+    bottom: -55px;
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    display: none;
   }
 `
 
@@ -102,14 +161,23 @@ const DicorateImageRight = styled.img`
   position: absolute;
   top: 40px;
   right: -50px;
-	width: 350px;
+  width: 350px;
   transition: all .3s ease;
-	
-	
-	&:hover {
-		transition: all .3s ease;
+
+  &:hover {
+    transition: all .3s ease;
     right: -30px;
-	}
+  }
+
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    width: 250px;
+    right: -40px;
+    bottom: -55px;
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    display: none;
+  }
 `
 
 const Button = styled(Link)`
@@ -135,6 +203,10 @@ const Button = styled(Link)`
   -o-animation: glowing 1500ms infinite;
   animation: glowing 1500ms infinite;
 
+  @media (max-width: ${mediaQueries.maxTablet}) {
+	  font-size: 30px;
+  }
+	
   @keyframes glowing {
     0% {
       background-color: #77c372;
@@ -153,7 +225,9 @@ const Button = styled(Link)`
 
 export {
 	TeleportContainer,
+	PreloaderWrapper,
 	Main,
+	PreloaderMain,
 	Button,
 	Title,
 	PortalImage,
