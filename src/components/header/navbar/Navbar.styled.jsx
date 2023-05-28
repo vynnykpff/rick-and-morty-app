@@ -1,23 +1,20 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-// Navigate
 const Nav = styled.nav`
-	width: 1260px;
-	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin: 40px 0;
+
 `;
 
-// Logo
 const StyledLogoImage = styled.img`
 	display: flex;
 	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 	border-radius: 50%;
-`;
+`
 
-// Navigate Links
 const StyledLink = styled(NavLink)`
 	color: var(--link-color);
 	text-decoration: none;
@@ -30,8 +27,7 @@ const StyledLink = styled(NavLink)`
 		text-decoration: none;
 		color: var(--accent-color);
 	}
-`;
-// Navigate Links Item
+`
 const StyledLinkItem = styled.span`
 	transition: all 0.3s ease;
 	position: relative;
@@ -55,7 +51,6 @@ const StyledLinkItem = styled.span`
 	}
 `;
 
-// Wrapper Link
 const StyledWrapperLink = styled.div`
 	display: flex;
 	column-gap: 60px;
@@ -66,7 +61,6 @@ const StyledWrapperLinkElement = styled.div`
 	column-gap: 20px;
 `;
 
-// Theme block
 const StyledThemeLink = styled.span`
 	font-size: 20px;
 	font-weight: 600;
