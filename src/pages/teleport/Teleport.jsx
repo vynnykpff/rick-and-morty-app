@@ -45,16 +45,16 @@ const Teleport = () => {
 						<LeftImage src={mortyImage} alt="morty-image"/>
 						<PortalBlock>
 							<Title src={titleImage} alt="title"/>
-							<PortalLink to="/characters/1">
-								<PortalImage src={portal} alt=""/>
+							<PortalLink onClick={handleClick}>
+								<PortalImage src={portal} alt="portal"/>
 							</PortalLink>
 							<Button onClick={handleClick}>
 								Teleport
 							</Button>
 						</PortalBlock>
 						<RightImage src={rickImage} alt="rick-image"/>
-						<DicorateImageLeft src={mortyInPortal} alt=""/>
-						<DicorateImageRight src={rickMortyPortal} alt=""/>
+						<DicorateImageLeft src={mortyInPortal} alt="left-dicorate-image"/>
+						<DicorateImageRight src={rickMortyPortal} alt="right-dicorate-image"/>
 					</PreloaderMain>
 				</PreloaderWrapper>
 				:
@@ -62,16 +62,16 @@ const Teleport = () => {
 					<LeftImage src={mortyImage} alt="morty-image"/>
 					<PortalBlock>
 						<Title src={titleImage} alt="title"/>
-						<PortalLink to="/characters/1">
-							<PortalImage src={portal} alt=""/>
+						<PortalLink onClick={handleClick}>
+							<PortalImage src={portal} alt="portal"/>
 						</PortalLink>
 						<Button onClick={handleClick}>
 							Teleport
 						</Button>
 					</PortalBlock>
 					<RightImage src={rickImage} alt="rick-image"/>
-					<DicorateImageLeft src={mortyInPortal} alt=""/>
-					<DicorateImageRight src={rickMortyPortal} alt=""/>
+					<DicorateImageLeft src={mortyInPortal} alt="left-dicorate-image"/>
+					<DicorateImageRight src={rickMortyPortal} alt="right-dicorate-image"/>
 				</Main>
 			}
 		</TeleportContainer>

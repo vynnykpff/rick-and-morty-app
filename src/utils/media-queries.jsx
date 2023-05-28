@@ -1,0 +1,8 @@
+export const mediaQueries = {
+	mobile: '320px',
+	maxMobile: '767px',
+	tablet: '768px',
+	maxTablet: '1259px',
+	desktop: '1260px',
+	maxDesktop: '1920px',
+};

@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
 const HeaderStyled = styled.header`
-width: 1260px;
-padding: 0 20px;
-	margin: 0 auto;
+  max-width: 1260px;
+  padding: 0 20px;
+  margin: 0 auto;
 `;
 
-export { HeaderStyled };
+export {HeaderStyled};

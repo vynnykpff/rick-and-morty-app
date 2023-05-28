@@ -1,31 +1,27 @@
+import {favorites,} from '../../../store/services/routes';
 import {
-	characters,
-	episodes,
-	favorites,
-	locations,
-} from '../../../store/services/routes';
-import {
+	MobileNav,
 	Nav,
 	StyledLink,
 	StyledLinkItem,
+	StyledLogoImage,
 	StyledThemeLink,
 	StyledWrapperLink,
 	StyledWrapperLinkElement,
-	StyledLogoImage,
 } from './Navbar.styled';
 import logo from '../../../../public/favicon.png';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { BiMoon } from 'react-icons/bi';
-import { BsSun } from 'react-icons/bs';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { set } from '../../../store/theme/theme.slice';
-import sound from './sound.wav'
-import { play } from '../../../utils/soundsBar.jsx';
+import {AiOutlineClose, AiOutlineHeart, AiOutlineMenu} from 'react-icons/ai';
+import {BiMoon} from 'react-icons/bi';
+import {BsSun} from 'react-icons/bs';
+import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {set} from '../../../store/theme/theme.slice';
+import sound from '../../../assets/sounds/change-theme.wav'
+import {play} from '../../../utils/soundsBar.jsx';
+import {HiMenu, IoIosClose, IoIosMenu} from "react-icons/all.js";
 
 const Navbar = () => {
-	// const [theme, setTheme] = useState(true);
-
+	const [nav, setNav] = useState(false);
 	const theme = useSelector(state => state.theme);
 	const dispatch = useDispatch();
 
@@ -41,10 +37,10 @@ const Navbar = () => {
 
 	return (
 		<Nav>
-			<StyledLink to='/' className='test'>
-				<StyledLogoImage src={logo} alt='logo' width={60} />
+			<StyledLink to='/'>
+				<StyledLogoImage src={logo} alt='logo' width={60}/>
 			</StyledLink>
-			<StyledWrapperLink>
+			<StyledWrapperLink onClick={() => setNav(false)} className={nav ? 'active' : ' '}>
 				<StyledLink to='characters/1'>
 					<StyledLinkItem>Characters</StyledLinkItem>
 				</StyledLink>
@@ -56,16 +52,18 @@ const Navbar = () => {
 				</StyledLink>
 				<StyledWrapperLinkElement>
 					<StyledLink to={favorites}>
-						<AiOutlineHeart />
+						<AiOutlineHeart/>
 					</StyledLink>
 					<StyledThemeLink onClick={() => {
 						handleChange()
-						// play()
 					}}>
-						{theme === 'light' ? <BiMoon /> : <BsSun />}
+						{theme === 'light' ? <BiMoon/> : <BsSun/>}
 					</StyledThemeLink>
 				</StyledWrapperLinkElement>
 			</StyledWrapperLink>
+			<MobileNav onClick={() => setNav(!nav)}>
+				{nav ? <IoIosClose style={{transition: 'all .3s ease'}} size={45} /> : <IoIosMenu size={35} />}
+			</MobileNav>
 		</Nav>
 	);
 };
