@@ -21,7 +21,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { set } from '../../../store/theme/theme.slice';
 import sound from './sound.wav'
-import { play } from '../../../utils/sounds/soundsBar';
+import { play } from '../../../utils/soundsBar.jsx';
 
 const Navbar = () => {
 	// const [theme, setTheme] = useState(true);

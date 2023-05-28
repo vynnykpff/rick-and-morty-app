@@ -16,6 +16,8 @@ import handleBtn from "../../utils/funcHandleBtn";
 import getRandomNum from "../../utils/randomFubc";
 import {useDispatch, useSelector} from "react-redux";
 import {getTotalActions} from "../../store/total-actions/totalActions.slice.js";
+import {play} from "../../utils/soundsBar.jsx";
+import sound from '../../assets/sounds/new-action.mp3';
 
 
 const Locations = () => {
@@ -41,6 +43,7 @@ const Locations = () => {
 	}, [saved]);
 
 	const onBtn = () => {
+		play(sound)
 		dispatch(getTotalActions(countOfActions));
 	}
 

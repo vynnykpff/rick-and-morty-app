@@ -6,6 +6,8 @@ import {getItem} from "../../store/services/my-api";
 import getRandomNum from '../../utils/randomFubc';
 import {useDispatch, useSelector} from "react-redux";
 import {getTotalActions} from "../../store/total-actions/totalActions.slice.js";
+import {play} from "../../utils/soundsBar.jsx";
+import sound from '../../assets/sounds/new-action.mp3';
 
 const Characters = () => {
 	const [hero, setHero] = useState(null)
@@ -18,6 +20,7 @@ const Characters = () => {
 	}, [id])
 
 	const handleBtn = () => {
+		play(sound)
 		dispatch(getTotalActions(countOfActions));
 	}
 

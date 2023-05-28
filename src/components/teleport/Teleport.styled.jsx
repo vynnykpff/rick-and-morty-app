@@ -7,17 +7,31 @@ const TeleportContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-	width: 100vw;
-	height: 100vh;
-	position: relative;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   overflow: hidden;
 `;
+
+const PreloaderWrapper = styled.div`
+ 
+`
 
 const Main = styled.main`
   display: flex;
   justify-content: space-around;
   align-items: center;
 `;
+
+const PreloaderMain = styled.main`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+	filter: blur(8px);
+`
 
 const Title = styled.img`
   width: 550px;
@@ -42,7 +56,7 @@ const PortalImage = styled.img`
 `;
 
 const PortalLink = styled(Link)`
-	
+
 `
 
 const PortalBlock = styled.div`
@@ -58,8 +72,8 @@ const LeftImage = styled.img`
   position: absolute;
   transform: rotate(35deg);
   transition: all .5s ease;
-	left: -80px;
-	bottom: -98px;
+  left: -80px;
+  bottom: -98px;
   border-top-left-radius: 80px;
   border-top-right-radius: 80px;
 
@@ -78,23 +92,24 @@ const RightImage = styled.img`
   bottom: -98px;
   border-top-left-radius: 80px;
   border-top-right-radius: 80px;
+
   &:hover {
     transition: all .5s ease;
-	  width: 520px;
+    width: 520px;
   }
 `
 
 const DicorateImageLeft = styled.img`
-	position: absolute;
-	top: 40px;
-	left: -110px;
-	width: 400px;
+  position: absolute;
+  top: 40px;
+  left: -110px;
+  width: 400px;
   transition: all .3s ease;
-	
-	
+
+
   &:hover {
     transition: all .3s ease;
-	  left: -130px;
+    left: -130px;
   }
 `
 
@@ -102,14 +117,14 @@ const DicorateImageRight = styled.img`
   position: absolute;
   top: 40px;
   right: -50px;
-	width: 350px;
+  width: 350px;
   transition: all .3s ease;
-	
-	
-	&:hover {
-		transition: all .3s ease;
+
+
+  &:hover {
+    transition: all .3s ease;
     right: -30px;
-	}
+  }
 `
 
 const Button = styled(Link)`
@@ -153,7 +168,9 @@ const Button = styled(Link)`
 
 export {
 	TeleportContainer,
+	PreloaderWrapper,
 	Main,
+	PreloaderMain,
 	Button,
 	Title,
 	PortalImage,

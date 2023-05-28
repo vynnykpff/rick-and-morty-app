@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { List, NoItems } from "../characterList/CharacterList.styled";
 import CardEl from "./Card";
+import {play} from "../../utils/soundsBar.jsx";
+import sound from '../../assets/sounds/delete-item.mp3';
+
 const FavoritePlace = ({ list, page }) => {
       const [saved, setSaved] = useState([])
 
@@ -15,6 +18,7 @@ const FavoritePlace = ({ list, page }) => {
     }, [saved]);
   
   const handleBtn = (id) => {
+    play(sound)
     const newList = saved.filter(item => item.id !== id)
     if (newList.length === 0) {
                 window.localStorage.removeItem(`Favorite${page}`);
