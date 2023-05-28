@@ -9,7 +9,7 @@ const Card = styled.div`
   margin-top: 40px;
   overflow: hidden;
   transition: all .3s ease;
-	
+	width: 100%;
   &:hover {
     box-shadow: var(--card-shadow--hover);
     transition: all .3s ease;

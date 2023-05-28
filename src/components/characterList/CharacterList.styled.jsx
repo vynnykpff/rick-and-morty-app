@@ -6,15 +6,15 @@ const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 25px -12px -12px -12px;
+  margin: 25px -10px -10px -10px;
   list-style: none;
 
 `
 const Card = styled.li`
   position: relative;
-  width: 297px;
-  height: 297px;
-  margin: 12px;
+  width: 290px;
+  height: 290px;
+  margin: 10px;
   border-radius: 10px;
   overflow: hidden;
 
