@@ -60,7 +60,7 @@ const StyledLinkItem = styled.span`
     transform-origin: bottom left;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: ${mediaQueries.tablet}) {
 	  font-size: 25px;
   }
 `;
@@ -71,7 +71,7 @@ const StyledWrapperLink = styled.div`
 	justify-content: center;
   column-gap: 60px;
 
-  @media (max-width: 800px) {
+  @media (max-width: ${mediaQueries.tablet}) {
     display: flex;
     flex-direction: column;
     justify-content: center;

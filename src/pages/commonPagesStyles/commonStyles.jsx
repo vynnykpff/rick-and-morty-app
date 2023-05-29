@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import {Link} from 'react-router-dom';
+import {mediaQueries} from "../../utils/media-queries.jsx";
 
 const Container = styled.div`
   width: 100%;
@@ -12,12 +13,23 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+	
+  @media (max-width: ${mediaQueries.tablet}) {
+    flex-direction: column;
+	  row-gap: 20px;
+  }
+	
 `
 
 const Quantity = styled.p`
   font-weight: 600;
   color: var(--result-color);
   font-size: 26px;
+
+  @media (max-width: ${mediaQueries.tablet}) {
+	  font-size: 22px;
+  }
+	
 `
 const SectionTitle = styled.h1`
   margin: 50px 0 30px 0;
@@ -49,6 +61,11 @@ const Button = styled(Link)`
   -moz-animation: glowing 1500ms infinite;
   -o-animation: glowing 1500ms infinite;
   animation: glowing 1500ms infinite;
+
+  @media (max-width: ${mediaQueries.tablet}) {
+	  padding: 12px 25px;
+	  font-size: 22px;
+  }
 }
 
 @keyframes glowing {

@@ -18,13 +18,10 @@
 
 - [HTML](https://html.spec.whatwg.org/multipage/)
 - [CSS](https://www.w3.org/Style/CSS/)
-- [SASS/SCSS](https://sass-lang.com/)
-- [Tailwind](https://tailwindcss.com/)
 - [Material UI](https://mui.com/)
 - [JavaScript](https://www.javascript.com/)
-- [GSAP.js](https://greensock.com/gsap/)
 - [React](https://react.dev/)
-- [Redux Toolkit / RTK Query](https://redux-toolkit.js.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
 
 ## **Using**
 

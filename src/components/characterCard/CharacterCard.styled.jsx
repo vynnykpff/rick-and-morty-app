@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import {mediaQueries} from "../../utils/media-queries.jsx";
 
 const Card = styled.div`
   background: var(--card-color);
@@ -9,10 +10,23 @@ const Card = styled.div`
   margin-top: 40px;
   overflow: hidden;
   transition: all .3s ease;
-	width: 100%;
+  width: 100%;
+
   &:hover {
     box-shadow: var(--card-shadow--hover);
     transition: all .3s ease;
+  }
+
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    width: 400px;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    width: 300px;
   }
 `
 const CharacterInfo = styled.div`
@@ -22,6 +36,10 @@ const CharacterInfo = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px;
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    padding: 20px;
+  }
 `
 const Name = styled.h1`
   color: var(--title-color);
@@ -30,23 +48,54 @@ const Name = styled.h1`
   margin-bottom: 30px;
   text-align: center;
 
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    font-size: 30px;
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    font-size: 25px;
+	  margin-bottom: 15px;
+  }
+
+
 `
 const Wrapper = styled.div`
   display: flex;
   margin-bottom: 20px;
   align-items: center;
+	
+  @media (max-width: ${mediaQueries.tablet}) {
+    margin-bottom: 10px;
+  }
 `
 const TitleInfo = styled.h2`
   font-size: 30px;
   font-weight: 600;
   margin-right: 15px;
 
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    font-size: 25px;
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    font-size: 20px;
+	  margin-right: 10px;
+  }
+
 `
 const Info = styled.p`
   font-size: 30px;
   font-weight: 400;
-	color: var(--link-color)
-	
+  color: var(--link-color);
+
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    font-size: 25px;
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    font-size: 20px;
+  }
+
 `
 const ImgWrapper = styled.div`
   display: flex;
@@ -54,6 +103,16 @@ const ImgWrapper = styled.div`
   width: 500px;
   height: 550px;
   align-self: flex-end;
+
+  @media (max-width: ${mediaQueries.maxTablet}) {
+    align-self: center;
+    width: 400px;
+    height: 450px;
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    height: 400px;
+  }
 
 `
 const Img = styled.img`
@@ -75,11 +134,17 @@ const FavBtn = styled.button`
   text-align: center;
   margin-top: 20px;
   transition: all .3s ease;
-	
+
   :hover {
     background-color: var(--result-color);
-	  transition: all .3s ease;
+    transition: all .3s ease;
     color: #fff
+  }
+
+  @media (max-width: ${mediaQueries.tablet}) {
+	  font-size: 22px;
+	  padding: 12px 25px;
+	  margin-bottom: 10px;
   }
 `
 export {Card, CharacterInfo, Name, TitleInfo, Info, ImgWrapper, Img, FavBtn, Wrapper}
