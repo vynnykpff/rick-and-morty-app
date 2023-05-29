@@ -8,8 +8,8 @@ import { store } from './store/store.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		{/*<BrowserRouter basename="/rick-and-morty-app">*/}
-		<BrowserRouter>
+		{/*<BrowserRouter>*/}
+		<BrowserRouter basename="/rick-and-morty-app">
 			<Provider store={store}>
 				<App />
 			</Provider>
