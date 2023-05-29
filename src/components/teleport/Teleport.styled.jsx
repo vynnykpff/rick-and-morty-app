@@ -11,21 +11,14 @@ const TeleportContainer = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   overflow: hidden;
-`;
-
-const PreloaderWrapper = styled.div`
-
 `
 
 const Main = styled.main`
   display: flex;
   justify-content: space-around;
   align-items: center;
-`;
+`
 
 const PreloaderMain = styled.main`
   display: flex;
@@ -37,20 +30,28 @@ const PreloaderMain = styled.main`
 `
 
 const Title = styled.img`
-  width: 550px;
+  width: 290px;
   animation: pulse 1.5s ease-in-out infinite;
 
-  @media (max-width: ${mediaQueries.maxTablet}) {
+  @media (min-width: ${mediaQueries.tablet}) {
     width: 300px;
+    margin-top: 30px;
+
+  }
+  @media (min-width: ${mediaQueries.desktop}) {
+    width: 500px;
   }
 `;
 
 const PortalImage = styled.img`
-  width: 550px;
+  width: 290px;
   animation: pulse 1s ease-in-out infinite;
 
-  @media (max-width: ${mediaQueries.maxTablet}) {
+  @media (min-width: ${mediaQueries.tablet}) {
     width: 400px;
+  }
+  @media (min-width: ${mediaQueries.desktop}) {
+    width: 500px;
   }
 	
   @keyframes pulse {
@@ -64,10 +65,6 @@ const PortalImage = styled.img`
       transform: scale(1);
     }
   }
-`;
-
-const PortalLink = styled(Link)`
-
 `
 
 const PortalBlock = styled.div`
@@ -79,19 +76,20 @@ const PortalBlock = styled.div`
 `
 
 const LeftImage = styled.img`
-  width: 500px;
+  display: none;
   position: absolute;
   transform: rotate(35deg);
   transition: all .5s ease;
-  left: -80px;
-  bottom: -98px;
+  width: 300px;
+  left: -40px;
+  bottom: -55px;
 
   &:hover {
-    transition: all .5s ease;
-    width: 520px;
+      width: 300px;
   }
 
-  @media (max-width: ${mediaQueries.maxTablet}) {
+  @media (min-width: ${mediaQueries.tablet}) {
+    display: block;
     width: 300px;
     left: -40px;
     bottom: -55px;
@@ -101,67 +99,74 @@ const LeftImage = styled.img`
     }
   }
 
-  @media (max-width: ${mediaQueries.tablet}) {
-	  display: none;
+  @media (min-width: ${mediaQueries.desktop}) {
+	  width: 500px;
+    left: -80px;
+    bottom: -98px;
+    &:hover {
+    transition: all .5s ease;
+    width: 520px;
+  }
   }
 `
 
 const RightImage = styled.img`
-  width: 500px;
+  display: none;
   position: absolute;
   transform: rotate(-35deg);
   transition: all .5s ease;
-  right: -80px;
-  bottom: -98px;
+  width: 300px;
+  right: -40px;
+  bottom: -55px;
 
-  &:hover {
+   &:hover {
+    	width: 300px;
+    }
+
+  @media (min-width: ${mediaQueries.tablet}) {
+    display: block;
+
+  }
+
+  @media (min-width: ${mediaQueries.desktop}) {
+    right: -80px;
+    bottom: -98px;
+    width: 500px;
+    &:hover {
     transition: all .5s ease;
     width: 520px;
   }
-
-  @media (max-width: ${mediaQueries.maxTablet}) {
-    width: 300px;
-    right: -40px;
-    bottom: -55px;
-
-    &:hover {
-    	width: 300px;
-    }
-  }
-
-  @media (max-width: ${mediaQueries.tablet}) {
-    display: none;
   }
 `
 
-const DicorateImageLeft = styled.img`
+const DecorateImageLeft = styled.img`
+  display: none;
   position: absolute;
-  top: 40px;
-  left: -110px;
-  width: 400px;
   transition: all .3s ease;
-	
+	width: 300px;
+  left: -110px;
+  top: 40px;
   &:hover {
     transition: all .3s ease;
     left: -130px;
   }
 
-  @media (max-width: ${mediaQueries.maxTablet}) {
-    width: 300px;
-    right: -40px;
-    bottom: -55px;
+  @media (min-width: ${mediaQueries.tablet}) {
+    display: block;
+  }
+  @media (min-width: ${mediaQueries.desktop}) {
+    width: 400px;
   }
 
-  @media (max-width: ${mediaQueries.tablet}) {
-    display: none;
-  }
+
 `
 
-const DicorateImageRight = styled.img`
+const DecorateImageRight = styled.img`
+  display: none;
   position: absolute;
   top: 40px;
-  right: -50px;
-  width: 350px;
+  width: 250px;
+  right: -40px;
   transition: all .3s ease;
 
   &:hover {
@@ -169,42 +174,44 @@ const DicorateImageRight = styled.img`
     right: -30px;
   }
 
-  @media (max-width: ${mediaQueries.maxTablet}) {
-    width: 250px;
-    right: -40px;
-    bottom: -55px;
+  @media (min-width: ${mediaQueries.tablet}) {
+    display: block;
   }
-
-  @media (max-width: ${mediaQueries.tablet}) {
-    display: none;
+  @media (min-width: ${mediaQueries.desktop}) {
+    width: 350px;
   }
 `
 
 const Button = styled(Link)`
-  background-color: #004A7F;
   -webkit-border-radius: 20px;
   border-radius: 30px;
   border: none;
-  width: 60%;
   margin: 0 auto;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
-  font-size: 40px;
+	font-size: 24px;
   padding: 20px 30px;
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   text-align: center;
   text-decoration: none;
   -webkit-animation: glowing 1500ms infinite;
   -moz-animation: glowing 1500ms infinite;
   -o-animation: glowing 1500ms infinite;
   animation: glowing 1500ms infinite;
+  margin-bottom: 30px;
 
-  @media (max-width: ${mediaQueries.maxTablet}) {
+  @media (min-width: ${mediaQueries.tablet}) {
 	  font-size: 30px;
+    padding: 15px 30px;
+
+  }
+  @media (min-width: ${mediaQueries.desktop}) {
+	  font-size: 40px;
+    padding: 20px 35px;
   }
 	
   @keyframes glowing {
@@ -225,16 +232,14 @@ const Button = styled(Link)`
 
 export {
 	TeleportContainer,
-	PreloaderWrapper,
 	Main,
 	PreloaderMain,
 	Button,
 	Title,
 	PortalImage,
-	PortalLink,
 	LeftImage,
 	RightImage,
 	PortalBlock,
-	DicorateImageLeft,
-	DicorateImageRight,
+	DecorateImageLeft,
+	DecorateImageRight,
 };

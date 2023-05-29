@@ -1,12 +1,13 @@
+import {Link} from 'react-router-dom';
 import {
 	Button,
-	DicorateImageLeft,
-	DicorateImageRight,
+	DecorateImageLeft,
+	DecorateImageRight,
 	LeftImage,
 	Main,
 	PortalBlock,
 	PortalImage,
-	PortalLink, PreloaderMain, PreloaderWrapper,
+	PreloaderMain,
 	RightImage,
 	TeleportContainer,
 	Title
@@ -39,39 +40,39 @@ const Teleport = () => {
 	return (
 		<TeleportContainer>
 			{isLoading ?
-				<PreloaderWrapper>
+				<div>
 					<Preloader/>
 					<PreloaderMain>
 						<LeftImage src={mortyImage} alt="morty-image"/>
 						<PortalBlock>
 							<Title src={titleImage} alt="title"/>
-							<PortalLink onClick={handleClick}>
+							<Link onClick={handleClick}>
 								<PortalImage src={portal} alt="portal"/>
-							</PortalLink>
+							</Link>
 							<Button onClick={handleClick}>
 								Teleport
 							</Button>
 						</PortalBlock>
 						<RightImage src={rickImage} alt="rick-image"/>
-						<DicorateImageLeft src={mortyInPortal} alt="left-dicorate-image"/>
-						<DicorateImageRight src={rickMortyPortal} alt="right-dicorate-image"/>
+						<DecorateImageLeft src={mortyInPortal} alt="left-dicorate-image"/>
+						<DecorateImageRight src={rickMortyPortal} alt="right-dicorate-image"/>
 					</PreloaderMain>
-				</PreloaderWrapper>
+				</div>
 				:
 				<Main>
 					<LeftImage src={mortyImage} alt="morty-image"/>
 					<PortalBlock>
 						<Title src={titleImage} alt="title"/>
-						<PortalLink onClick={handleClick}>
+						<Link onClick={handleClick}>
 							<PortalImage src={portal} alt="portal"/>
-						</PortalLink>
+						</Link>
 						<Button onClick={handleClick}>
 							Teleport
 						</Button>
 					</PortalBlock>
 					<RightImage src={rickImage} alt="rick-image"/>
-					<DicorateImageLeft src={mortyInPortal} alt="left-dicorate-image"/>
-					<DicorateImageRight src={rickMortyPortal} alt="right-dicorate-image"/>
+					<DecorateImageLeft src={mortyInPortal} alt="left-dicorate-image"/>
+					<DecorateImageRight src={rickMortyPortal} alt="right-dicorate-image"/>
 				</Main>
 			}
 		</TeleportContainer>

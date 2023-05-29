@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import {Link} from 'react-router-dom';
-import {mediaQueries} from "../../utils/media-queries.jsx";
+import { mediaQueries } from '../../utils/media-queries';
 
 const Container = styled.div`
   width: 100%;
@@ -10,39 +10,60 @@ const Container = styled.div`
 
 `
 const Wrapper = styled.div`
-  display: flex;
+display: flex;
+flex-direction: column;
+@media (min-width: ${mediaQueries.tablet}) {
+	display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-	
-  @media (max-width: ${mediaQueries.tablet}) {
-    flex-direction: column;
-	  row-gap: 20px;
   }
-	
+  
 `
 
 const Quantity = styled.p`
   font-weight: 600;
   color: var(--result-color);
-  font-size: 26px;
-
-  @media (max-width: ${mediaQueries.tablet}) {
-	  font-size: 22px;
+  font-size: 22px;
+  margin-bottom: 25px;
+  @media (min-width: ${mediaQueries.tablet}) {
+	  font-size: 26px;
+    margin-bottom: 0;
   }
-	
 `
 const SectionTitle = styled.h1`
   margin: 50px 0 30px 0;
-  font-size: 40px;
+  font-size: 28px;
+
+  @media (min-width: ${mediaQueries.tablet}) {
+	font-size: 36px;
+  }
+  @media (min-width: ${mediaQueries.desktop}) {
+	font-size: 40px;
+  }
 `
 const SectionInfo = styled.p`
   color: var(--text-color);
-  font-size: 24px;
+  font-size: 28px;
   margin-bottom: 20px;
+
+  @media (min-width: ${mediaQueries.tablet}) {
+	font-size: 24px;
+  }
+  @media (min-width: ${mediaQueries.tablet}) {
+	font-size: 28px;
+  }
 `
 const ListTitle = styled.h3`
   margin-top: 50px;
-  font-size: 28px;
+  font-size: 26px;
+
+  @media (min-width: ${mediaQueries.tablet}) {
+	font-size: 26px;
+  }
+  @media (min-width: ${mediaQueries.desktop}) {
+	font-size: 28px;
+  }
 `
 const Button = styled(Link)`
   background-color: #004A7F;
@@ -53,20 +74,22 @@ const Button = styled(Link)`
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
-  font-size: 26px;
-  padding: 15px 30px;
+  font-size: 23px;
+  padding: 15px 50px;
   text-align: center;
+  margin: 0 auto;
   text-decoration: none;
   -webkit-animation: glowing 1500ms infinite;
   -moz-animation: glowing 1500ms infinite;
   -o-animation: glowing 1500ms infinite;
   animation: glowing 1500ms infinite;
 
-  @media (max-width: ${mediaQueries.tablet}) {
-	  padding: 12px 25px;
-	  font-size: 22px;
+@media (min-width: ${mediaQueries.tablet}) {
+  margin: 0;
+	font-size: 26px;
+  padding: 15px 30px;
   }
-}
+
 
 @keyframes glowing {
   0% {
@@ -87,6 +110,11 @@ const SectionName = styled.span`
   color: var(--link-color);
 	font-weight: 700;
 	letter-spacing: 1.2px;
+  font-size: 28px;
+
+  @media (min-width: ${mediaQueries.tablet}) {
+	font-size: 40px;
+  }
 `
 
 const FavBtn = styled.button`
@@ -98,8 +126,8 @@ const FavBtn = styled.button`
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
-  font-size: 26px;
-  padding: 15px 30px;
+  font-size: 22px;
+  padding: 15px 40px;
   text-align: center;
   margin-top: 20px;
   transition: all .3s ease;
@@ -109,5 +137,11 @@ const FavBtn = styled.button`
     color: #fff;
     transition: all .3s ease;
   }
+
+  @media (min-width: ${mediaQueries.tablet}) {
+	font-size: 26px;
+  padding: 15px 30px;
+  }
+
 `
 export {Quantity, Button, Wrapper, Container, ListTitle, SectionInfo, SectionTitle, SectionName, FavBtn}
