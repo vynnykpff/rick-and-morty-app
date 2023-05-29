@@ -8,7 +8,7 @@ import Favorites from './pages/favorites/Favorites';
 import {
 	characters,
 	episodes,
-	favorites,
+	favorites, homepage,
 	locations,
 	notfound,
 } from './store/services/routes';
@@ -24,7 +24,7 @@ function App() {
 			<Context.Provider value={{select, setSelect}}>
 				<Routes>
 					<Route index element={<Teleport/>}/>
-					<Route path='/' element={<Layout/>}>
+					<Route path={homepage} element={<Layout/>}>
 						<Route path={characters} element={<Characters/>}/>
 						<Route path={locations} element={<Locations/>}/>
 						<Route path={episodes} element={<Episodes/>}/>
