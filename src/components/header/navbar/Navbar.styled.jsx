@@ -10,12 +10,11 @@ const Nav = styled.nav`
 `;
 
 const MobileNav = styled.div`
-  display: none;
-
-  @media (max-width: ${mediaQueries.tablet}) {
-    display: block;
-    cursor: pointer;
-    z-index: 10;
+  display: block;
+  z-index: 10;
+  @media (min-width: ${mediaQueries.tablet}) {
+    display: none;
+    
 `
 
 const StyledLogoImage = styled.img`
@@ -60,7 +59,7 @@ const StyledLinkItem = styled.span`
     transform-origin: bottom left;
   }
 
-  @media (max-width: ${mediaQueries.tablet}) {
+  @media (max-width: 768px) {
 	  font-size: 25px;
   }
 `;
@@ -71,7 +70,7 @@ const StyledWrapperLink = styled.div`
 	justify-content: center;
   column-gap: 60px;
 
-  @media (max-width: ${mediaQueries.tablet}) {
+  @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: center;

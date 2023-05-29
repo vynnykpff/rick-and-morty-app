@@ -5,28 +5,29 @@ const Card = styled.div`
   background: var(--card-color);
   box-shadow: var(--card-shadow);
   border-radius: 38px;
-  display: flex;
-  align-items: center;
   margin-top: 40px;
   overflow: hidden;
   transition: all .3s ease;
-  width: 100%;
 
   &:hover {
     box-shadow: var(--card-shadow--hover);
     transition: all .3s ease;
   }
 
-  @media (max-width: ${mediaQueries.maxTablet}) {
-    width: 400px;
+  @media (min-width: ${mediaQueries.tablet}) {
+    display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     margin: 40px auto;
+    width: 500px;
+
   }
 
-  @media (max-width: ${mediaQueries.tablet}) {
-    width: 300px;
+  @media (min-width: ${mediaQueries.desktop}) {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
   }
 `
 const CharacterInfo = styled.div`
@@ -98,27 +99,27 @@ const Info = styled.p`
 
 `
 const ImgWrapper = styled.div`
+  height: 300px;
+
+  @media (min-width: ${mediaQueries.tablet}) {
+    width: 100%;
+    align-self: center;
+    height: 500px;
+  }
+
+  @media (min-width: ${mediaQueries.desktop}) {
   display: flex;
   justify-content: center;
   width: 500px;
   height: 550px;
   align-self: flex-end;
-
-  @media (max-width: ${mediaQueries.maxTablet}) {
-    align-self: center;
-    width: 400px;
-    height: 450px;
-  }
-
-  @media (max-width: ${mediaQueries.tablet}) {
-    height: 400px;
   }
 
 `
 const Img = styled.img`
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
 `
 const FavBtn = styled.button`
   background-color: ${props => props.fav ? 'var(--result-color)' : 'transparent'};

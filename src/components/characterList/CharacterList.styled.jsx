@@ -1,19 +1,26 @@
 import styled from "@emotion/styled";
 import {Link} from "react-router-dom";
 import {RxCross2} from "react-icons/rx";
+import { mediaQueries } from "../../utils/media-queries";
 
 const List = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   margin: 25px -10px -10px -10px;
   list-style: none;
 
+   @media (min-width: ${mediaQueries.tablet}) {
+	  display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 25px -15px -15px -15px;
+  }
+  @media (min-width: ${mediaQueries.desktop}) {
+	  margin: 25px -10px -10px -10px;
+  }
 `
 const Card = styled.li`
   position: relative;
-  width: 290px;
-  height: 290px;
+  width: 300px;
+  height: 300px;
   margin: 10px;
   border-radius: 10px;
   overflow: hidden;
@@ -21,6 +28,17 @@ const Card = styled.li`
   &:hover img {
 	  transform: scale(1.08);
 	  transition: all .3s ease;
+  }
+
+   @media (min-width: ${mediaQueries.tablet}) {
+	width: 349px;
+  height: 349px;
+  margin: 15px;
+  }
+   @media (min-width: ${mediaQueries.desktop}) {
+	width: 290px;
+  height: 290px;
+  margin: 10px;
   }
 `
 const Name = styled.h2`
