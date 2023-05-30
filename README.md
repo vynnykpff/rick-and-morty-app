@@ -1,6 +1,6 @@
 # **Rick and Morty Application**
 
-## [**<u>Link to website</u>**](https://www.youtube.com/watch?v=tCn5hzxJi2o&ab_channel=Axilz)
+## [**<u>Link to website</u>**](https://vynnykpff.github.io/rick-and-morty-app/)
 
 #### **This project will feature characters, locations, and episodes from Rick and Morty. More complete and detailed information about the technical task – _[link](https://docs.google.com/document/d/1y3kciBCGJXhoe3L7udjUxSIyXIDmhOjV/edit?usp=share_link&ouid=115686959859866866439&rtpof=true&sd=true)_ .**
 
