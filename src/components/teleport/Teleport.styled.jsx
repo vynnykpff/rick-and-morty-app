@@ -12,6 +12,7 @@ const TeleportContainer = styled.div`
   height: 100vh;
   position: fixed;
   overflow: hidden;
+  padding: 30px 0;
 `
 
 const Main = styled.main`
@@ -39,6 +40,9 @@ const Title = styled.img`
 
   }
   @media (min-width: ${mediaQueries.desktop}) {
+    width: 400px;
+  }
+  @media (min-width: ${mediaQueries.fullHd}) {
     width: 500px;
   }
 `;
@@ -48,9 +52,12 @@ const PortalImage = styled.img`
   animation: pulse 1s ease-in-out infinite;
 
   @media (min-width: ${mediaQueries.tablet}) {
-    width: 400px;
+    max-width: 400px;
   }
   @media (min-width: ${mediaQueries.desktop}) {
+    max-width: 500px;
+  }
+  @media (min-width: ${mediaQueries.fullHd}) {
     width: 500px;
   }
 	
